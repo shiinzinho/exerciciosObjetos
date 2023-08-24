@@ -1,24 +1,24 @@
 "use strict";
-class exercicio {
-    constructor(nome, valor, desconto) {
-        this.nome = nome;
+class produto {
+    constructor(Produto, valor, desconto) {
+        this.Produto = Produto;
         this.valor = valor;
         this.desconto = desconto;
     }
     exibir() {
-        return 'Produto: ' + this.nome
+        return 'Produto: ' + this.Produto
             + ', Preço: ' + this.valor;
     }
     newValor() {
         return 'O produto custa ' + this.valor + ', com o desconto ele custará: ' + (this.valor - (this.valor / 100 * this.desconto));
     }
 }
-let produtoUm = new exercicio('PC', 5000, 20);
-let produtoDois = new exercicio('Celular', 2000, 20);
-let produtoTres = new exercicio('Impressora', 500, 20);
-console.log(produtoUm.exibir());
-console.log(produtoUm.newValor());
-console.log(produtoDois.exibir());
-console.log(produtoDois.newValor());
-console.log(produtoTres.exibir());
-console.log(produtoTres.newValor());
+let primeiraCompra = new produto('PC', 5000, 20);
+let segundaCompra = new produto('Celular', 2000, 20);
+let terceiraCompra = new produto('Impressora', 500, 20);
+console.log(primeiraCompra.exibir());
+console.log(primeiraCompra.newValor());
+console.log(segundaCompra.exibir());
+console.log(segundaCompra.newValor());
+console.log(terceiraCompra.exibir());
+console.log(terceiraCompra.newValor());
