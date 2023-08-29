@@ -7,32 +7,30 @@ class Funcionario {
         this.INSS = INSS;
         this.IR = IR;
     }
-    aumento(aumento) {
-        this.salarioBruto = this.salarioBruto + ((this.salarioBruto / 100) * aumento);
-        let salarioAntigo = ((this.salarioBruto * 100) / 110);
-        return this.nome + ' recebe ' + salarioAntigo + ', mas hoje ele recebeu um aumento de 10% em seu salário. Novo salário: R$' + this.salarioBruto;
-    }
-    exibir() {
-        let impostos = (((this.salarioBruto * this.INSS) / 100) + ((this.salarioBruto * this.IR) / 100));
-        let salarioLiquido = (this.salarioBruto - (((this.salarioBruto * this.INSS) / 100) + ((this.salarioBruto * this.IR) / 100)));
-        return 'Funcionário: ' + this.nome + ', Salário Bruto: R$' + this.salarioBruto
-            + ', Impostos a serem pagos: R$' + impostos + ', Salário Liquido: R$'
-            + salarioLiquido;
-    }
     totalImpostos() {
-        this.salarioBruto = ((this.salarioBruto * 100) / 110);
-        let impostos = (((this.salarioBruto * this.INSS) / 100) + ((this.salarioBruto * this.IR) / 100));
-        let salarioLiquido = (this.salarioBruto - (((this.salarioBruto * this.INSS) / 100) + ((this.salarioBruto * this.IR) / 100)));
-        return 'Funcionário: ' + this.nome + ', Salário Bruto: R$' + this.salarioBruto
-            + ', Impostos a serem pagos: R$' + impostos + ', Salário Liquido: R$'
-            + salarioLiquido;
+        let impostoINSS = ((this.salarioBruto * this.INSS) / 100);
+        let novoSalario = this.salarioBruto - impostoINSS;
+        return "Valor de impostos a serem pagos: R$" + (impostoINSS + (novoSalario * this.IR) / 100);
+    }
+    aplicarAumento(percentual) {
+        let aumento = (this.salarioBruto * percentual) / 100;
+        this.salarioBruto = this.salarioBruto + aumento;
+        return "Aumento de " + percentual + "%." + " Novo salário: R$" + this.salarioBruto;
+    }
+    exibirDetalheFuncionario() {
+        let impostoINSS = ((this.salarioBruto * this.INSS) / 100);
+        let novoSalario = this.salarioBruto - impostoINSS;
+        let impostos = (impostoINSS + (novoSalario * this.IR) / 100);
+        let salarioLiquido = this.salarioBruto - impostos;
+        return "Funcionário: " + this.nome + ", Salário Bruto: R$" + this.salarioBruto.toFixed(2) +
+            ", Impostos a serem pagos: R$" + impostos.toFixed(2) + " Salario liquído: R$" + salarioLiquido.toFixed(2);
     }
 }
 let funcionarioUm = new Funcionario('Ana Silva', 'Analista de Vendas', 3000, 11, 7.5);
-console.log(funcionarioUm.aumento(10));
-console.log(funcionarioUm.exibir());
 console.log(funcionarioUm.totalImpostos());
+console.log(funcionarioUm.aplicarAumento(10));
+console.log(funcionarioUm.exibirDetalheFuncionario());
 let funcionarioDois = new Funcionario('Pedro', 'Bancário', 2500, 11, 7.5);
-console.log(funcionarioDois.aumento(10));
-console.log(funcionarioDois.exibir());
 console.log(funcionarioDois.totalImpostos());
+console.log(funcionarioDois.aplicarAumento(10));
+console.log(funcionarioDois.exibirDetalheFuncionario());
