@@ -1,0 +1,28 @@
+class Funcionario{
+    nome: string
+    cargo: string
+    salarioBruto: number
+
+    constructor(nome: string, cargo: string, salarioBruto: number){
+        this.nome = nome
+        this.cargo = cargo
+        this.salarioBruto = salarioBruto
+    }
+    exibir(){
+        return 'oi, eu sou ' + this.nome + ', exerço o cargo de ' + this.cargo + ', e ganho: R$' + this.salarioBruto
+     }
+    aumento(INSS: number){
+        this.salarioBruto = this.salarioBruto +  ((this.salarioBruto/100) * INSS); return this.nome + ' recebeu um aumento de 10% aplicado. Novo salário: R$' + this.salarioBruto
+     }
+    exibirINSS(INSS: number){
+        this.salarioBruto = this.salarioBruto - ((this.salarioBruto/100) * INSS); return this.nome + ' recebeu um aumento de 11% aplicado. Novo salário: R$' + this.salarioBruto
+     }
+     exibirImposto(IR: number){
+        this.salarioBruto = this.salarioBruto -  ((this.salarioBruto/100) * IR); return this.nome + ' recebeu um aumento de 7,5% aplicado. Novo salário: R$' + this.salarioBruto
+     }
+}
+let funcionarioUm = new Funcionario('Ana', 'Analista de Vendas', 3000)
+console.log(funcionarioUm.exibir())
+console.log(funcionarioUm.aumento(10))
+console.log(funcionarioUm.exibirINSS(11))
+console.log(funcionarioUm.exibirImposto(7.5))
