@@ -13,8 +13,8 @@ class Funcionario{
         this.IR = IR
         
     }
-    aumento(INSS: number){
-        this.salarioBruto = this.salarioBruto +  ((this.salarioBruto/100) * INSS);
+    aumento(aumento: number){
+        this.salarioBruto = this.salarioBruto +  ((this.salarioBruto/100) * aumento);
         let salarioAntigo = ((this.salarioBruto * 100)/110)
         return this.nome + ' recebe ' + salarioAntigo + ', mas hoje ele recebeu um aumento de 10% em seu salário. Novo salário: R$' + this.salarioBruto
      }
