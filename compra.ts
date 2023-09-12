@@ -47,6 +47,7 @@ class Loja {
     }
     apagarEstoque(estoque: ProdutoLoja) {
         this.estoques = this.estoques.filter(item =>item.nome!= estoque.nome);
+        return "Produto removido do estoque"
     }
     adicionarCarrinho(produto: ProdutoLoja){
         let encontrarProduto = this.estoques.find(estoque => estoque.nome == produto.nome);
@@ -61,12 +62,21 @@ class Loja {
         return this.carrinhoCompras.precoTotalEach()
         
     }
-}
-
-    const produto1 = new ProdutoLoja("Carrinho", 2)
-    const produto2 = new ProdutoLoja("Bola", 1)
-    const produto3 = new ProdutoLoja("Ursinho", 1)
-    const produto4 = new ProdutoLoja("Boneca", 1)
+    exbirTotalCarrinho(){
+        console.log('Meu(s) item(s)')
+        for(let i=0; i < this.estoques.length; i++){
+        console.log("Produto: " + this.estoques[i].nome + " Preço: " +  this.estoques[i].preco);
+    }
+    }
+    removerCarrinho(estoque: ProdutoLoja){
+        return this.carrinhoCompras.apagarProdutos(estoque);
+    }
+    }
+    const produto1 = new ProdutoLoja("Carrinho", 200)
+    const produto2 = new ProdutoLoja("Bola", 50)
+    const produto3 = new ProdutoLoja("Ursinho", 100)
+    const produto4 = new ProdutoLoja("Boneca", 150)
+    const produto5 = new ProdutoLoja("Peteca", 110)
 
 const loja = new Loja();
 
@@ -78,4 +88,10 @@ console.log(loja.adicionarCarrinho(produto1));
 console.log(loja.adicionarCarrinho(produto2));
 console.log(loja.adicionarCarrinho(produto3));
 console.log(loja.adicionarCarrinho(produto4));
+console.log(loja.adicionarCarrinho(produto5));
+console.log(loja.exbirTotalCarrinho());
+console.log(loja.exibirPrecoCarrinho());
+console.log(loja.apagarEstoque(produto1))
+console.log(loja.removerCarrinho(produto1));
+console.log(loja.exbirTotalCarrinho());
 console.log(loja.exibirPrecoCarrinho())
