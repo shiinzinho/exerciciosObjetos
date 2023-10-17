@@ -47,9 +47,9 @@ const pedido1 = new ProdutoPedido('Celular', 2000);
 const pedido2 = new ProdutoPedido('Tablet', 4000);
 
 const pedidos = new Pedido();
-console.log(pedidos.adicionarProduto(pedido1));
-console.log(pedidos.adicionarProduto(pedido2));
-console.log(pedidos.exibirProdutosDoPedido());
+pedidos.adicionarProduto(pedido1);
+pedidos.adicionarProduto(pedido2);
+pedidos.exibirProdutosDoPedido();
 console.log(pedidos.exibirStatus());
-console.log(pedidos.atualizarStatus(StatusPedido.Saindo));
+pedidos.atualizarStatus(StatusPedido.Saindo);
 console.log(pedidos.exibirStatus());
