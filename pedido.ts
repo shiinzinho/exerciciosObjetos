@@ -3,8 +3,6 @@ enum StatusPedido{
     Preparando = "Em Preparo",
     Saindo = "Saiu para Entrega",
     Entregado = "Entregue"
-
-    const
 }
 class ProdutoPedido{
     nome: string;
@@ -55,4 +53,3 @@ console.log(pedidos.exibirProdutosDoPedido());
 console.log(pedidos.exibirStatus());
 console.log(pedidos.atualizarStatus(StatusPedido.Saindo));
 console.log(pedidos.exibirStatus());
-

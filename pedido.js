@@ -5,7 +5,6 @@ var StatusPedido;
     StatusPedido["Preparando"] = "Em Preparo";
     StatusPedido["Saindo"] = "Saiu para Entrega";
     StatusPedido["Entregado"] = "Entregue";
-    StatusPedido[StatusPedido["const"] = void 0] = "const";
 })(StatusPedido || (StatusPedido = {}));
 class ProdutoPedido {
     constructor(nome, valor) {
